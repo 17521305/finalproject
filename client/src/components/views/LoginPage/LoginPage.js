@@ -29,11 +29,11 @@ function LoginPage(props) {
       }}
       validationSchema={Yup.object().shape({
         email: Yup.string()
-          .email('Email is invalid')
-          .required('Email is required'),
+          .email('Email không hợp lệ')
+          .required('Bắt buộc nhập email'),
         password: Yup.string()
-          .min(6, 'Password must be at least 6 characters')
-          .required('Password is required'),
+          .min(6, 'Mật khẩu phải có ít nhất 6 kí tự')
+          .required('Bắt buộc nhập mật khẩu'),
       })}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
@@ -53,11 +53,11 @@ function LoginPage(props) {
                 }
                 props.history.push("/");
               } else {
-                setFormErrorMessage('Check out your Account or Password again')
+                setFormErrorMessage('Kiểm tra lại email hoặc mật khẩu')
               }
             })
             .catch(err => {
-              setFormErrorMessage('Check out your Account or Password again')
+              setFormErrorMessage('Kiểm tra lại email hoặc mật khẩu')
               setTimeout(() => {
                 setFormErrorMessage("")
               }, 3000);
@@ -81,14 +81,14 @@ function LoginPage(props) {
         return (
           <div className="app">
 
-            <Title level={2}>Log In</Title>
+            <Title level={2}>Đăng nhập</Title>
             <form onSubmit={handleSubmit} style={{ width: '350px' }}>
 
               <Form.Item required>
                 <Input
                   id="email"
                   prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  placeholder="Enter your email"
+                  placeholder="Nhập email"
                   type="email"
                   value={values.email}
                   onChange={handleChange}
@@ -106,7 +106,7 @@ function LoginPage(props) {
                 <Input
                   id="password"
                   prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  placeholder="Enter your password"
+                  placeholder="Nhập password"
                   type="password"
                   value={values.password}
                   onChange={handleChange}
@@ -125,16 +125,16 @@ function LoginPage(props) {
               )}
 
               <Form.Item>
-                <Checkbox id="rememberMe" onChange={handleRememberMe} checked={rememberMe} >Remember me</Checkbox>
+                <Checkbox id="rememberMe" onChange={handleRememberMe} checked={rememberMe} >Ghi nhớ tôi</Checkbox>
                 <a className="login-form-forgot" href="/reset_user" style={{ float: 'right' }}>
-                  forgot password
+                  Quên mật khẩu
                   </a>
                 <div>
                   <Button type="primary" htmlType="submit" className="login-form-button" style={{ minWidth: '100%' }} disabled={isSubmitting} onSubmit={handleSubmit}>
-                    Log in
+                    Đăng nhập
                 </Button>
                 </div>
-                Or <a href="/register">register now!</a>
+                Hoặc <a href="/register">đăng kí ngay!</a>
               </Form.Item>
             </form>
           </div>

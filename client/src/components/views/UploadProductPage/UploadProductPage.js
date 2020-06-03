@@ -35,7 +35,7 @@ function UploadProductPage(props) {
     const onSubmit=(event)=>{
         event.preventDefault();
         if(!TitleValue||!DescriptionValue||!PriceValue||!Images||!Devices){
-            return alert('Please fill in all fields first!')
+            return alert('Vui lòng điền hết vào các trường!')
         }
         const variables={
             writer:props.user.userData._id,
@@ -48,17 +48,17 @@ function UploadProductPage(props) {
         Axios.post('/api/product/uploadProduct',variables)
         .then(response=>{
             if(response.data.success){
-                alert('Product has been successfully uploaded')
+                alert('Sản phẩm đã được upload thành công')
                 props.history.push('/') 
             }else{
-                alert('Failed to upload product')
+                alert('Upload sản phẩm không thành công')
             }
         })
     }
     return (
         <div style={{maxWidth:'700px',margin:'2rem auto'}}>
             <div style={{textAlign:'center',marginBottom:'2rem'}}>
-                <Title level={2}>Upload Product</Title>
+                <Title level={2}>Upload sản phẩm</Title>
             </div>
             <Form onSubmit={onSubmit}>
                 <FileUpload refreshFunction={updateImages}/>
@@ -78,7 +78,7 @@ function UploadProductPage(props) {
                 />
                 <br/>
                 <br/>
-                <label>Giá cả(VND)</label>
+                <label>Mức giá (VND)</label>
                 <Input
                     onChange={onPriceChange}
                     value={PriceValue}

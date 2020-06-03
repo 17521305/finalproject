@@ -98,13 +98,13 @@ function RegisterPage(props) {
         } = props;
         return (
           <div className="app">
-            <h2>Sign up</h2>
+            <h2>Đăng kí</h2>
             <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
 
-              <Form.Item required label="Name">
+              <Form.Item required label="Tên">
                 <Input
                   id="name"
-                  placeholder="Enter your name"
+                  placeholder="Nhập tên"
                   type="text"
                   value={values.name}
                   onChange={handleChange}
@@ -118,10 +118,10 @@ function RegisterPage(props) {
                 )}
               </Form.Item>
 
-              <Form.Item required label="Last Name">
+              <Form.Item required label="Họ">
                 <Input
                   id="lastName"
-                  placeholder="Enter your Last Name"
+                  placeholder="Nhập họ"
                   type="text"
                   value={values.lastName}
                   onChange={handleChange}
@@ -138,7 +138,7 @@ function RegisterPage(props) {
               <Form.Item required label="Email" hasFeedback validateStatus={errors.email && touched.email ? "error" : 'success'}>
                 <Input
                   id="email"
-                  placeholder="Enter your Email"
+                  placeholder="Nhập email"
                   type="email"
                   value={values.email}
                   onChange={handleChange}
@@ -152,10 +152,10 @@ function RegisterPage(props) {
                 )}
               </Form.Item>
 
-              <Form.Item required label="Password" hasFeedback validateStatus={errors.password && touched.password ? "error" : 'success'}>
+              <Form.Item required label="Mật khẩu" hasFeedback validateStatus={errors.password && touched.password ? "error" : 'success'}>
                 <Input
                   id="password"
-                  placeholder="Enter your password"
+                  placeholder="Nhập mật khẩu"
                   type="password"
                   value={values.password}
                   onChange={handleChange}
@@ -169,10 +169,10 @@ function RegisterPage(props) {
                 )}
               </Form.Item>
 
-              <Form.Item required label="Confirm" hasFeedback>
+              <Form.Item required label="Xác nhận" hasFeedback>
                 <Input
                   id="confirmPassword"
-                  placeholder="Enter your confirmPassword"
+                  placeholder="Xác nhận lại mật khẩu"
                   type="password"
                   value={values.confirmPassword}
                   onChange={handleChange}
@@ -188,7 +188,7 @@ function RegisterPage(props) {
 
               <Form.Item {...tailFormItemLayout}>
                 <Button onClick={handleSubmit} type="primary" disabled={isSubmitting}>
-                  Submit
+                  Đăng kí
                 </Button>
               </Form.Item>
             </Form>
